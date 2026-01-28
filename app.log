@@ -1,0 +1,141 @@
+
+> slotify-api@0.0.1 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m5:31:21 pm[0m] Starting compilation in watch mode...
+
+[[90m5:31:22 pm[0m] Found 0 errors. Watching for file changes.
+
+✅ RabbitMQ connected
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mStarting Nest application...[39m
+    [35mcontext[39m: "NestFactory"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mQueueModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mPassportModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mConfigHostModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mConfigModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mConfigModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mAppModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mLoggerModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mJwtModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mAuthModule dependencies initialized[39m
+    [35mcontext[39m: "InstanceLoader"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mAppController {/}:[39m
+    [35mcontext[39m: "RoutesResolver"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mMapped {/test-rabbit, GET} route[39m
+    [35mcontext[39m: "RouterExplorer"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mAuthController {/auth}:[39m
+    [35mcontext[39m: "RoutesResolver"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mMapped {/auth/register, POST} route[39m
+    [35mcontext[39m: "RouterExplorer"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mMapped {/auth/login, POST} route[39m
+    [35mcontext[39m: "RouterExplorer"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mMapped {/auth/forgot-password, POST} route[39m
+    [35mcontext[39m: "RouterExplorer"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mMapped {/auth/me, GET} route[39m
+    [35mcontext[39m: "RouterExplorer"
+[2026-01-16 17:31:23.234 +0530] [32mINFO[39m: [36mNest application successfully started[39m
+    [35mcontext[39m: "NestApplication"
+[2026-01-16 17:32:00.422 +0530] [32mINFO[39m: [36mFetch User Details[39m
+    [35mreq[39m: {
+      "id": 1,
+      "method": "GET",
+      "url": "/auth/me",
+      "query": {},
+      "params": {
+        "path": [
+          "auth",
+          "me"
+        ]
+      },
+      "headers": {
+        "content-type": "application/json",
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoia2FyYW5zb2ZhdDg5QGdtYWlsLmNvbSIsImlhdCI6MTc2ODU2NDY1MCwiZXhwIjoxNzY4NTY1NTUwfQ.Vva-7VIzRlqT9nq2nQAd5XwBIKUapv0CsnXKxy4CIwI",
+        "user-agent": "PostmanRuntime/7.51.0",
+        "accept": "*/*",
+        "postman-token": "c08447fd-fe84-4449-a143-6088ec1ef69d",
+        "host": "localhost:3000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "69"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 56021
+    }
+    [35mcontext[39m: "AuthService"
+    [35muserId[39m: 1
+[2026-01-16 17:32:00.427 +0530] [32mINFO[39m: [36mUser Details[39m
+    [35mreq[39m: {
+      "id": 1,
+      "method": "GET",
+      "url": "/auth/me",
+      "query": {},
+      "params": {
+        "path": [
+          "auth",
+          "me"
+        ]
+      },
+      "headers": {
+        "content-type": "application/json",
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoia2FyYW5zb2ZhdDg5QGdtYWlsLmNvbSIsImlhdCI6MTc2ODU2NDY1MCwiZXhwIjoxNzY4NTY1NTUwfQ.Vva-7VIzRlqT9nq2nQAd5XwBIKUapv0CsnXKxy4CIwI",
+        "user-agent": "PostmanRuntime/7.51.0",
+        "accept": "*/*",
+        "postman-token": "c08447fd-fe84-4449-a143-6088ec1ef69d",
+        "host": "localhost:3000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "69"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 56021
+    }
+    [35mcontext[39m: "AuthService"
+    [35mid[39m: 1
+    [35memail[39m: "karansofat89@gmail.com"
+    [35mimageUrl[39m: null
+    [35misActive[39m: true
+    [35mcreatedAt[39m: "2026-01-13T15:45:12.354Z"
+[2026-01-16 17:32:00.431 +0530] [32mINFO[39m: [36mrequest completed[39m
+    [35mreq[39m: {
+      "id": 1,
+      "method": "GET",
+      "url": "/auth/me",
+      "query": {},
+      "params": {
+        "path": [
+          "auth",
+          "me"
+        ]
+      },
+      "headers": {
+        "content-type": "application/json",
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoia2FyYW5zb2ZhdDg5QGdtYWlsLmNvbSIsImlhdCI6MTc2ODU2NDY1MCwiZXhwIjoxNzY4NTY1NTUwfQ.Vva-7VIzRlqT9nq2nQAd5XwBIKUapv0CsnXKxy4CIwI",
+        "user-agent": "PostmanRuntime/7.51.0",
+        "accept": "*/*",
+        "postman-token": "c08447fd-fe84-4449-a143-6088ec1ef69d",
+        "host": "localhost:3000",
+        "accept-encoding": "gzip, deflate, br",
+        "connection": "keep-alive",
+        "content-length": "69"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 56021
+    }
+    [35mres[39m: {
+      "statusCode": 200,
+      "headers": {
+        "x-powered-by": "Express",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "112",
+        "etag": "W/\"70-I9o4CCU6xq3TwTFCW1PT++w1z58\""
+      }
+    }
+    [35mresponseTime[39m: 16

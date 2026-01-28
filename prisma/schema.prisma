@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/* ===========================
+   User
+=========================== */
+model User {
+  id                  Int                  @id @default(autoincrement())
+  email               String               @unique
+  name                String?
+  passwordHash        String
+  isActive            Boolean              @default(true)
+  imageUrl            String?  // 👈 add this
+
+
+  sessions            AuthSession[]
+  passwordResetTokens PasswordResetToken[]
+  roles               UserRole[]
+
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+}
+
+/* ===========================
+   Auth Sessions (Refresh Token)
+=========================== */
+model AuthSession {
+  id           Int       @id @default(autoincrement())
+  userId       Int
+  refreshHash  String    @unique
+  expiresAt    DateTime
+  revokedAt    DateTime?
+
+  ipAddress    String?
+  userAgent    String?
+
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime  @default(now())
+
+  @@index([userId])
+}
+
+/* ===========================
+   Roles
+=========================== */
+model Role {
+  id          Int        @id @default(autoincrement())
+  name        String     @unique
+  description String?
+
+  users       UserRole[]
+
+  createdAt   DateTime   @default(now())
+}
+
+/* ===========================
+   User ↔ Role (Join Table)
+=========================== */
+model UserRole {
+  userId Int
+  roleId Int
+
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role   Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@index([roleId])
+}
+
+/* ===========================
+   Password Reset Tokens
+=========================== */
+model PasswordResetToken {
+  id         Int       @id @default(autoincrement())
+  userId     Int
+  tokenHash  String    @unique
+  expiresAt  DateTime
+  usedAt     DateTime?
+
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime  @default(now())
+
+  @@index([userId])
+}
