@@ -55,7 +55,6 @@ const prisma_service_1 = require("../services/prisma.service");
 const password_utill_1 = require("./password.utill");
 const jwt_1 = require("@nestjs/jwt");
 const reset_token_util_1 = require("./utils/reset-token.util");
-const rabbitmq_service_1 = require("../queue/rabbitmq.service");
 const fs = __importStar(require("fs/promises"));
 const path = __importStar(require("path"));
 const config_1 = require("@nestjs/config");
@@ -68,15 +67,13 @@ const token_util_1 = require("./utils/token.util");
 let AuthService = AuthService_1 = class AuthService {
     prisma;
     jwt;
-    rabbit;
     config;
     logger;
     redis;
     searchService;
-    constructor(prisma, jwt, rabbit, config, logger, redis, searchService) {
+    constructor(prisma, jwt, config, logger, redis, searchService) {
         this.prisma = prisma;
         this.jwt = jwt;
-        this.rabbit = rabbit;
         this.config = config;
         this.logger = logger;
         this.redis = redis;
@@ -198,12 +195,6 @@ let AuthService = AuthService_1 = class AuthService {
                 expiresAt: new Date(Date.now() + 15 * 60 * 1000),
             },
         });
-        await this.rabbit.publish('send_email', {
-            type: 'FORGOT_PASSWORD',
-            email: user.email,
-            token,
-            retryCount: 0,
-        });
         console.log('RESET TOKEN (for testing):', token);
         return { message: 'If email exists, reset link will be sent' };
     }
@@ -293,9 +284,8 @@ let AuthService = AuthService_1 = class AuthService {
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = AuthService_1 = __decorate([
     (0, common_1.Injectable)(),
-    __param(5, (0, common_2.Inject)('REDIS_CLIENT')),
+    __param(4, (0, common_2.Inject)('REDIS_CLIENT')),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService, jwt_1.JwtService,
-        rabbitmq_service_1.RabbitMQService,
         config_1.ConfigService,
         nestjs_pino_1.PinoLogger,
         ioredis_1.default,

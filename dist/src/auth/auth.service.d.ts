@@ -3,7 +3,6 @@ import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
-import { RabbitMQService } from '../queue/rabbitmq.service';
 import { ConfigService } from '@nestjs/config';
 import { PinoLogger } from 'nestjs-pino';
 import Redis from 'ioredis';
@@ -11,12 +10,11 @@ import { ElasticsearchService } from 'src/elasticSearch/elasticsearch.service';
 export declare class AuthService {
     private prisma;
     private jwt;
-    private rabbit;
     private config;
     private readonly logger;
     private readonly redis;
     private searchService;
-    constructor(prisma: PrismaService, jwt: JwtService, rabbit: RabbitMQService, config: ConfigService, logger: PinoLogger, redis: Redis, searchService: ElasticsearchService);
+    constructor(prisma: PrismaService, jwt: JwtService, config: ConfigService, logger: PinoLogger, redis: Redis, searchService: ElasticsearchService);
     register(dto: RegisterDto, image?: Express.Multer.File): Promise<{
         id: number;
         email: string;

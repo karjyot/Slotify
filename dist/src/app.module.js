@@ -12,7 +12,6 @@ const config_1 = require("@nestjs/config");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const auth_module_1 = require("./auth/auth.module");
-const queue_module_1 = require("./queue/queue.module");
 const nestjs_pino_1 = require("nestjs-pino");
 const redis_module_1 = require("./redis/redis.module");
 const users_module_1 = require("./users/users.module");
@@ -41,7 +40,6 @@ exports.AppModule = AppModule = __decorate([
                 },
             }),
             auth_module_1.AuthModule,
-            queue_module_1.QueueModule,
             redis_module_1.RedisModule,
             users_module_1.UsersModule
         ],

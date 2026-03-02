@@ -11,17 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
-const rabbitmq_service_1 = require("./queue/rabbitmq.service");
 let AppController = class AppController {
-    rabbit;
-    constructor(rabbit) {
-        this.rabbit = rabbit;
-    }
+    constructor() { }
     async testRabbit() {
-        await this.rabbit.publish('test_queue', {
-            message: 'Hello from NestJS',
-            time: new Date().toISOString(),
-        });
         return { status: 'Message sent to RabbitMQ' };
     }
 };
@@ -34,6 +26,6 @@ __decorate([
 ], AppController.prototype, "testRabbit", null);
 exports.AppController = AppController = __decorate([
     (0, common_1.Controller)(),
-    __metadata("design:paramtypes", [rabbitmq_service_1.RabbitMQService])
+    __metadata("design:paramtypes", [])
 ], AppController);
 //# sourceMappingURL=app.controller.js.map

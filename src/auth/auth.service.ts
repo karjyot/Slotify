@@ -6,7 +6,7 @@ import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { generateResetToken, hashResetToken } from './utils/reset-token.util';
-import { RabbitMQService } from '../queue/rabbitmq.service';
+//import { RabbitMQService } from '../queue/rabbitmq.service';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { ConfigService } from '@nestjs/config';
@@ -27,7 +27,7 @@ import {
 @Injectable()
 export class AuthService {
   constructor(private prisma: PrismaService, private jwt: JwtService,
-    private rabbit: RabbitMQService,
+    //private rabbit: RabbitMQService,
     private config: ConfigService,
     private readonly logger: PinoLogger,
     @Inject('REDIS_CLIENT') private readonly redis: Redis,
@@ -199,13 +199,13 @@ export class AuthService {
       },
     });
   
-    await this.rabbit.publish('send_email', {
-        type: 'FORGOT_PASSWORD',
-        email: user.email,
-        token,
-        retryCount: 0,
+    // await this.rabbit.publish('send_email', {
+    //     type: 'FORGOT_PASSWORD',
+    //     email: user.email,
+    //     token,
+    //     retryCount: 0,
 
-      });
+    //   });
   
     console.log('RESET TOKEN (for testing):', token);
   
