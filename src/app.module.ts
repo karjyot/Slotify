@@ -6,7 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { QueueModule } from './queue/queue.module';
 import { LoggerModule } from 'nestjs-pino';
 import { RedisModule } from './redis/redis.module';
-import { ElasticsearchModule } from './elasticSearch/elasticsearch.module';
+//import { ElasticsearchModule } from './elasticSearch/elasticsearch.module';
 import { UsersModule } from './users/users.module';
 
 
@@ -36,7 +36,7 @@ import { UsersModule } from './users/users.module';
     AuthModule,
     QueueModule,
     RedisModule,
-    ElasticsearchModule,
+   // ElasticsearchModule,
     UsersModule
   ],
   controllers: [AppController],

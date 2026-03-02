@@ -15,7 +15,6 @@ const auth_module_1 = require("./auth/auth.module");
 const queue_module_1 = require("./queue/queue.module");
 const nestjs_pino_1 = require("nestjs-pino");
 const redis_module_1 = require("./redis/redis.module");
-const elasticsearch_module_1 = require("./elasticSearch/elasticsearch.module");
 const users_module_1 = require("./users/users.module");
 let AppModule = class AppModule {
 };
@@ -44,7 +43,6 @@ exports.AppModule = AppModule = __decorate([
             auth_module_1.AuthModule,
             queue_module_1.QueueModule,
             redis_module_1.RedisModule,
-            elasticsearch_module_1.ElasticsearchModule,
             users_module_1.UsersModule
         ],
         controllers: [app_controller_1.AppController],
