@@ -12,6 +12,6 @@ export class AppController {
     //   time: new Date().toISOString(),
     // });
 
-    return { status: 'Message sent to RabbitMQ' };
+    return { status: 'Message sent to RabbitMQ to test ec2' };
   }
 }
