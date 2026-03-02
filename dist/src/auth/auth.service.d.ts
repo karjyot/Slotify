@@ -7,6 +7,7 @@ import { RabbitMQService } from '../queue/rabbitmq.service';
 import { ConfigService } from '@nestjs/config';
 import { PinoLogger } from 'nestjs-pino';
 import Redis from 'ioredis';
+import { ElasticsearchService } from 'src/elasticSearch/elasticsearch.service';
 export declare class AuthService {
     private prisma;
     private jwt;
@@ -14,7 +15,8 @@ export declare class AuthService {
     private config;
     private readonly logger;
     private readonly redis;
-    constructor(prisma: PrismaService, jwt: JwtService, rabbit: RabbitMQService, config: ConfigService, logger: PinoLogger, redis: Redis);
+    private searchService;
+    constructor(prisma: PrismaService, jwt: JwtService, rabbit: RabbitMQService, config: ConfigService, logger: PinoLogger, redis: Redis, searchService: ElasticsearchService);
     register(dto: RegisterDto, image?: Express.Multer.File): Promise<{
         id: number;
         email: string;

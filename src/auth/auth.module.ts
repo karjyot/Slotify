@@ -8,6 +8,8 @@ import { AuthController } from './auth.controller';
 import { PrismaService } from '../services/prisma.service';
 import { JwtStrategy } from './jwt.startegy';
 import { QueueModule } from '../queue/queue.module';
+import { ElasticsearchModule } from 'src/elasticSearch/elasticsearch.module';
+
 
 @Module({
   imports: [
@@ -24,6 +26,7 @@ import { QueueModule } from '../queue/queue.module';
         },
       }),
     }),
+    ElasticsearchModule
   ],
   controllers: [AuthController],
   providers: [

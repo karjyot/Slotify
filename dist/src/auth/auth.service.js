@@ -63,6 +63,7 @@ const nestjs_pino_1 = require("nestjs-pino");
 const ioredis_1 = __importDefault(require("ioredis"));
 const common_2 = require("@nestjs/common");
 const constants_1 = require("./constants");
+const elasticsearch_service_1 = require("../elasticSearch/elasticsearch.service");
 const token_util_1 = require("./utils/token.util");
 let AuthService = AuthService_1 = class AuthService {
     prisma;
@@ -71,13 +72,15 @@ let AuthService = AuthService_1 = class AuthService {
     config;
     logger;
     redis;
-    constructor(prisma, jwt, rabbit, config, logger, redis) {
+    searchService;
+    constructor(prisma, jwt, rabbit, config, logger, redis, searchService) {
         this.prisma = prisma;
         this.jwt = jwt;
         this.rabbit = rabbit;
         this.config = config;
         this.logger = logger;
         this.redis = redis;
+        this.searchService = searchService;
         this.logger.setContext(AuthService_1.name);
     }
     async register(dto, image) {
@@ -108,6 +111,17 @@ let AuthService = AuthService_1 = class AuthService {
                             },
                         },
                     },
+                },
+            });
+            await this.searchService.getClient().index({
+                index: 'users',
+                id: user.id.toString(),
+                document: {
+                    id: user.id,
+                    email: user.email,
+                    name: user.name,
+                    imageUrl: user.imageUrl,
+                    createdAt: user.createdAt,
                 },
             });
             return {
@@ -284,6 +298,7 @@ exports.AuthService = AuthService = AuthService_1 = __decorate([
         rabbitmq_service_1.RabbitMQService,
         config_1.ConfigService,
         nestjs_pino_1.PinoLogger,
-        ioredis_1.default])
+        ioredis_1.default,
+        elasticsearch_service_1.ElasticsearchService])
 ], AuthService);
 //# sourceMappingURL=auth.service.js.map

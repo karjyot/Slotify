@@ -16,6 +16,7 @@ const auth_controller_1 = require("./auth.controller");
 const prisma_service_1 = require("../services/prisma.service");
 const jwt_startegy_1 = require("./jwt.startegy");
 const queue_module_1 = require("../queue/queue.module");
+const elasticsearch_module_1 = require("../elasticSearch/elasticsearch.module");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -35,6 +36,7 @@ exports.AuthModule = AuthModule = __decorate([
                     },
                 }),
             }),
+            elasticsearch_module_1.ElasticsearchModule
         ],
         controllers: [auth_controller_1.AuthController],
         providers: [

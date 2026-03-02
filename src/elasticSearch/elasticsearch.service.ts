@@ -9,7 +9,7 @@ export class ElasticsearchService implements OnModuleInit {
     this.client = new Client({
       node: 'http://localhost:9200',
     });
-    await this.createUserIndex();
+    //await this.createUserIndex();
 
   }
   getClient() {
