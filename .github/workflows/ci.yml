@@ -21,7 +21,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/Slotify
-            git pull origin main
+            git fetch origin
+            git reset --hard origin/main
             npm install
             npm run build
             pm2 restart Slotify || pm2 start dist/src/main.js --name Slotify
